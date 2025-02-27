@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
 import { getCMSContent } from '../services/AEMService';
 
+type ContentItem = {
+  id: number;
+  title: string;
+  body: string;
+};
+
 const ScreenRest = () => {
-  const [content, setContent] = useState([]);
+  const [content, setContent] = useState<ContentItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +31,7 @@ const ScreenRest = () => {
         <FlatList
           data={content}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
+            renderItem={({ item }: { item: ContentItem }) => (
             <View style={styles.card}>
               <Text style={styles.title}>{item.title}</Text>
               <Text style={styles.body}>{item.body}</Text>
