@@ -1,97 +1,115 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# What is CMS?
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A **CMS (Content Management System)** is a software application that allows users to create, manage, and modify digital content without requiring extensive technical knowledge. It provides an interface for managing website or app content, making it easy for non-developers to update text, images, videos, and other elements.
 
-## Step 1: Start Metro
+# Types of CMS:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+**1. Traditional CMS (Coupled CMS)**
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Backend and frontend are tightly integrated.
+Example: WordPress, Drupal, Joomla
+Best for websites where content and presentation are managed together.
+
+**2. Headless CMS**
+
+The backend (content storage) is separate from the frontend (presentation layer).
+Content is delivered via APIs (REST, GraphQL) to any frontend (web, mobile, IoT).
+Example: AEM, Contentful, Strapi, Sanity
+Best for mobile apps, SPAs, and multi-platform content delivery.
+
+**3. Decoupled CMS**
+
+The backend is separate but provides an optional frontend rendering system.
+A hybrid approach between traditional and headless CMS.
+
+# Why Use a CMS?
+
+✅ Easy content management – No need for coding knowledge.
+
+✅ Faster updates – Modify content without redeploying an app.
+
+✅ Multichannel support – Deliver content across web, mobile, and other platforms.
+
+✅ Collaboration – Multiple users can manage content with role-based access.
+
+# CMS in React Native
+
+For React Native, Headless CMS is commonly used since mobile apps need content via APIs. 
+
+Examples:
+
+- AEM (Adobe Experience Manager)
+
+- Contentful
+
+- Strapi
+
+- Sanity
+
+- Firebase Firestore (as a lightweight CMS)
+
+# AEM as headless CMS
+
+AEM (Adobe Experience Manager) as a headless CMS allows React Native applications to fetch and display content dynamically from AEM without being tightly coupled to its frontend. Instead of rendering pages on the server, AEM exposes content through APIs (like REST or GraphQL), which can be consumed by mobile or web applications.
+
+# Key Features of AEM as Headless CMS in React Native:
+
+### **Content Delivery via API:**
+
+AEM provides RESTful and GraphQL APIs to fetch content.
+
+React Native apps can request structured content dynamically.
+
+### **Component-Based Content Management:**
+
+Content authors can manage text, images, and other assets in AEM.
+
+The React Native app retrieves and renders this content.
+
+### **Omnichannel Support:**
+
+AEM’s headless architecture allows content reuse across multiple platforms (web, mobile, IoT).
+
+### **GraphQL for Optimized Queries:**
+
+AEM’s GraphQL API allows fetching only the required data, improving performance.
+
+
+# How to Use AEM in React Native?
+
+1. Set up AEM’s Content Fragment Model:
+
+Define content fragments (e.g., articles, banners, product details).
+
+2. Expose APIs:
+
+Enable AEM’s Content Services to expose structured content via REST or GraphQL.
+
+3. Fetch Content in React Native:
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+fetch('https://your-aem-instance/content/my-api.json')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
 ```
 
-## Step 2: Build and run your app
+4. Render Content Dynamically:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Use React Native components to display images, text, and videos fetched from AEM.
 
-### Android
+# Why Use AEM as Headless for React Native?
 
-```sh
-# Using npm
-npm run android
+- Centralized content management
+- Seamless integration with Adobe ecosystem
+- Flexible frontend choices
+- Improved performance with GraphQL
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
 ## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+You've successfully learn what is CMS and how to acheive CMS using AEM:
 
-### Now what?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
